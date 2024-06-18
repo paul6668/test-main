@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Define the output CSV file
+output_file="nslookup_results.csv"
+
+# Write the CSV header
+echo "Route,Address" > $output_file
+
+# Get the list of routes from the istio-system namespace
+routes=$(oc get route -n istio-system | grep project | awk '{print $2}')
+
+# Loop through each route and perform nslookup
+for route in $routes; 
+do
+  echo "Processing route: $route"
+  
+  # Perform nslookup and extract the address
+  address=$(nslookup $route | grep 'Address:' | tail -n1 | awk '{print $2}')
+  
+  # Append the result to the CSV file
+  echo "$route,$address" >> $output_file
+done
+
+echo "Results written to $output_file"
