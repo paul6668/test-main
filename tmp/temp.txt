@@ -22,3 +22,11 @@ do
 done
 
 echo "Results written to $output_file"
+
+
+
+3568b95554-gw.cloud.aquasec.com:443\"/" | oc apply -f -
+•	oc create secret generic aqua-kube-enforcer-token --from-literal=token=af162024-ba00-4a88-9f33-81ebeb693b7f -n aqua 
+
+
+•	docker run -d  registry.aquasec.com/scanner:2406.10.19 daemon --token fcfa710ce5d5fb5ce103afd4234e888e6a66f48d --host https://3568b95554.cloud.aquasec.com
