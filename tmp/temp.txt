@@ -57,3 +57,15 @@ For openshift cluster (Both Aqua enforcers and Kube Enforcers):
 Scanner (Either way, docker or openshift)
 •	Deploy Scanner on Kubernetes using Manifest Files – Aqua Docs (aquasec.com)
 •	docker run -d  registry.aquasec.com/scanner:2406.10.19 daemon --token fcfa710ce5d5fb5ce103afd4234e888e6a66f48d --host https://3568b95554.cloud.aquasec.com
+
+
+
+---
+2024-07-02 07:27:08.584 WARN Failed connecting to gRPC server. Attempt: 1, sleep duration (seconds): 10, error: Failed to register Kube Enforcer: invalid token, get it approved from administrator
+2024-07-02 07:27:18.585 INFO Attempting to connect to management server via gRPC
+2024-07-02 07:27:18.585 INFO gRPC client - TLS minimum version is set to: {"version": 771}
+2024-07-02 07:27:18.586 INFO Successfully connected to the server via gRPC
+2024-07-02 07:27:18.586 INFO Waiting for leader election sync
+2024-07-02 07:27:18.587 INFO Leader election sync is done. {"LeaderPodName": "aqua-kube-enforcer-6478849984-nkwr4"}
+2024-07-02 07:27:18.587 INFO Registering Kube Enforcer with Gateway
+2024-07-02 07:27:26.756 WARN Failed connecting to gRPC server. Attempt: 2, sleep duration (seconds): 20, error: Failed to register Kube Enforcer: invalid token, get it approved from administrator
