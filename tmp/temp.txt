@@ -30,3 +30,6 @@ echo "Results written to $output_file"
 
 
 •	docker run -d  registry.aquasec.com/scanner:2406.10.19 daemon --token fcfa710ce5d5fb5ce103afd4234e888e6a66f48d --host https://3568b95554.cloud.aquasec.com
+
+
+38207c36-5d4f-477a-ba48-c8133ca905ba
