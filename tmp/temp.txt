@@ -69,3 +69,6 @@ Scanner (Either way, docker or openshift)
 2024-07-02 07:27:18.587 INFO Leader election sync is done. {"LeaderPodName": "aqua-kube-enforcer-6478849984-nkwr4"}
 2024-07-02 07:27:18.587 INFO Registering Kube Enforcer with Gateway
 2024-07-02 07:27:26.756 WARN Failed connecting to gRPC server. Attempt: 2, sleep duration (seconds): 20, error: Failed to register Kube Enforcer: invalid token, get it approved from administrator
+
+
+428e6a28-5807-47f7-a563-8b0336cf76c6
