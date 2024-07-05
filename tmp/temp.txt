@@ -85,3 +85,4 @@ Scanner (Either way, docker or openshift)
 {"level":"info","ts":"2024-07-05 03:52:16.783","msg":"connecting to server 3568b95554-gw.cloud.aquasec.com:443"}
 {"level":"error","ts":"2024-07-05 03:52:17.719","msg":"failed connecting to server: authentication failure: rpc error: code = Unauthenticated desc = wrong token"}
 {"level":"info","ts":"2024-07-05 03:52:23.324","msg":"connecting to server 3568b95554-gw.cloud.aquasec.com:443"}
+d313e430-3991-420f-9a86-8d9cf0ee1a2e
