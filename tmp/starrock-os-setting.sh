@@ -9,6 +9,7 @@ set -e
 #    http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz
 
 tar -xzf MirrorShip-EE-3.2.8/file/openjdk-8u322-b06-linux-x64.tar.gz -C /usr/local
+ln -s /usr/local/java-se-8u322-b06 /usr/local/java-se
 JAVA_HOME=/usr/local/java-se
 
 # Set JAVA_HOME
