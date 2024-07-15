@@ -7,7 +7,7 @@ set -e
 #wget --no-check-certificate --no-cookies \
 #    --header "Cookie: oraclelicense=accept-securebackup-cookie" \
 #    http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz
-
+mkdir -p /data/seutp
 tar -xzf MirrorShip-EE-3.2.8/file/openjdk-8u322-b06-linux-x64.tar.gz -C /usr/local
 ln -s /usr/local/java-se-8u322-b06 /usr/local/java-se
 JAVA_HOME=/usr/local/java-se
@@ -15,7 +15,7 @@ JAVA_HOME=/usr/local/java-se
 # Set JAVA_HOME
 echo "export JAVA_HOME=$JAVA_HOME" >> /etc/profile
 echo "export PATH=\$PATH:\$JAVA_HOME/bin" >> /etc/profile
-source /etc/profile
+#source /etc/profile
 java -version
 
 # Adjust kernel parameters
@@ -23,8 +23,8 @@ echo "vm.overcommit_memory=1" >> /etc/sysctl.conf
 sysctl -p
 
 # Transparent HugePages Configuration
-echo madvise | tee /sys/kernel/mm/transparent_hugepage/enabled
-echo madvise | tee /sys/kernel/mm/transparent_hugepage/defrag
+#echo madvise | tee /sys/kernel/mm/transparent_hugepage/enabled
+#echo madvise | tee /sys/kernel/mm/transparent_hugepage/defrag
 
 cat >> /etc/rc.d/rc.local << EOF
 if test -f /sys/kernel/mm/transparent_hugepage/enabled; then
@@ -60,7 +60,7 @@ systemctl disable firewalld.service
 
 # Set locale
 echo "export LANG=en_US.UTF8" >> /etc/profile
-source /etc/profile
+#source /etc/profile
 
 # Set timezone
 yes|cp -f /usr/share/zoneinfo/Asia/Macau /etc/localtime
