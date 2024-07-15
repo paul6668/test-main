@@ -63,7 +63,8 @@ echo "export LANG=en_US.UTF8" >> /etc/profile
 source /etc/profile
 
 # Set timezone
-cp -f /usr/share/zoneinfo/Asia/Macau /etc/localtime
+yes|cp -f /usr/share/zoneinfo/Asia/Macau /etc/localtime
+
 hwclock
 
 # Set resource limits
