@@ -46,7 +46,7 @@ echo "vm.swappiness=0" >> /etc/sysctl.conf
 sysctl -p
 
 # Set I/O scheduler
-echo "echo kyber | tee /sys/block/\${disk}/queue/scheduler" >> /etc/rc.d/rc.local
+echo "echo kyber | tee /sys/block/sdb/queue/scheduler" >> /etc/rc.d/rc.local
 chmod +x /etc/rc.d/rc.local
 
 # Disable SELinux
