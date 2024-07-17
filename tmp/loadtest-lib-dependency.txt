@@ -1,0 +1,122 @@
+ Problem 1: conflicting requests
+  - nothing provides module(platform:el8) needed by module jaxb:4:8080020230207081414:9d367344.x86_64
+ Problem 2: conflicting requests
+  - nothing provides module(platform:el8) needed by module mercurial:4.8:820190108205035:77fc8825.x86_64
+ Problem 3: conflicting requests
+  - nothing provides module(platform:el8) needed by module perl:5.26:820181219174508:9edba152.x86_64
+ Problem 4: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module ant:1.10:8100020240221104459:417e5c08.x86_64
+ Problem 5: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module container-tools:rhel8:8100020240614090355:afee755d.x86_64
+ Problem 6: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module eclipse:rhel8:8030020201023061315:498c0fee.x86_64
+ Problem 7: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module freeradius:3.0:8080020221214103624:89170a74.x86_64
+ Problem 8: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module gimp:2.8:8090020240201075404:4ba4a31a.x86_64
+ Problem 9: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module go-toolset:rhel8:8100020240613152020:a3795dee.x86_64
+ Problem 10: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module httpd:2.4:8100020240612075645:489197e6.x86_64
+ Problem 11: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module idm:client:8100020240417004735:143e9e98.x86_64
+ Problem 12: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module inkscape:0.92.3:8080020221109110104:3e031279.x86_64
+ Problem 13: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module jmc:rhel8:8050020211005144542:6392b1f8.x86_64
+ Problem 14: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module llvm-toolset:rhel8:8100020240205133135:e155f54d.x86_64
+ Problem 15: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module log4j:2:8080020221020123337:9d367344.x86_64
+ Problem 16: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module mailman:2.1:8090020230727085757:0ef2f6ef.x86_64
+ Problem 17: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module mariadb:10.3:8080020230814130040:63b34585.x86_64
+ Problem 18: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module maven:3.5:8060020220428102527:219351c9.x86_64
+ Problem 19: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module mod_auth_openidc:2.3:8090020230721123832:b46abd14.x86_64
+ Problem 20: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module mysql:8.0:8090020240126173013:a75119d5.x86_64
+ Problem 21: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module nginx:1.14:8000020190830002848:f8e95b4e.x86_64
+ Problem 22: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module nodejs:10:8030020210225164533:229f0a1c.x86_64
+ Problem 23: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module postgresql:10:8090020240213200157:a75119d5.x86_64
+ Problem 24: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module python27:2.7:8100020240208011952:5f0f67de.x86_64
+ Problem 25: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module python36:3.6:8100020231207164005:5ae887d0.x86_64
+ Problem 26: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module python38:3.8:8090020230810143931:d9f72c26.x86_64
+ Problem 27: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module python39:3.9:8100020240516111311:d47b87a4.x86_64
+ Problem 28: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module redis:5:8040020211011074037:522a0ee4.x86_64
+ Problem 29: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module rhn-tools:1.0:8010020190425142954:f69d1239.x86_64
+ Problem 30: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module ruby:2.5:8100020240627152904:489197e6.x86_64
+ Problem 31: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module rust-toolset:rhel8:8100020240119204620:f4e2ccb8.x86_64
+ Problem 32: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module satellite-5-client:1.0:8010020190621091459:cdc1202b.x86_64
+ Problem 33: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module squid:4:8100020240319173245:e155f54d.x86_64
+ Problem 34: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module subversion:1.10:8070020220701055908:78111232.x86_64
+ Problem 35: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module swig:3.0:8030020200407110056:30b713e6.x86_64
+ Problem 36: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module varnish:6:8090020240328195416:a75119d5.x86_64
+ Problem 37: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module virt:rhel:8100020240704072441:489197e6.x86_64
+ Problem 38: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module php:7.2:8020020191108065827:2c7ca891.x86_64
+  - nothing provides module(platform:el8) needed by module php:7.2:820181215112050:76554e01.x86_64
+ Problem 39: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module perl-libwww-perl:6.34:8060020210901111951:5e590cab.x86_64
+  - nothing provides module(platform:el8) needed by module perl-libwww-perl:6.34:8060020210901111951:9168a43d.x86_64
+  - nothing provides module(platform:el8) needed by module perl-libwww-perl:6.34:8060020210901111951:b947e2fe.x86_64
+  - nothing provides module(platform:el8) needed by module perl-libwww-perl:6.34:8060020210901111951:e0b4ded3.x86_64
+ Problem 40: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module perl-YAML:1.24:8060020210901112033:f7485d8d.x86_64
+  - nothing provides module(platform:el8) needed by module perl-YAML:1.24:8060020210901112033:e4fef011.x86_64
+  - nothing provides module(platform:el8) needed by module perl-YAML:1.24:8060020210901112033:6a1d53c5.x86_64
+  - nothing provides module(platform:el8) needed by module perl-YAML:1.24:8060020210901112033:369bdfc6.x86_64
+ Problem 41: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module perl-IO-Socket-SSL:2.066:8060020211122104554:200e0407.x86_64
+  - nothing provides module(platform:el8) needed by module perl-IO-Socket-SSL:2.066:8060020211122104554:0e56aea9.x86_64
+  - nothing provides module(platform:el8) needed by module perl-IO-Socket-SSL:2.066:8060020211122104554:03d935ed.x86_64
+  - nothing provides module(platform:el8) needed by module perl-IO-Socket-SSL:2.066:8060020211122104554:bc93984d.x86_64
+ Problem 42: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module perl-FCGI:0.78:8060020210901110348:200e0407.x86_64
+  - nothing provides module(platform:el8) needed by module perl-FCGI:0.78:8060020210901110348:bc93984d.x86_64
+  - nothing provides module(platform:el8) needed by module perl-FCGI:0.78:8060020210901110348:03d935ed.x86_64
+  - nothing provides module(platform:el8) needed by module perl-FCGI:0.78:8060020210901110348:0e56aea9.x86_64
+ Problem 43: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module perl-DBI:1.641:8060020211122100623:bc93984d.x86_64
+  - nothing provides module(platform:el8) needed by module perl-DBI:1.641:8060020211122100623:03d935ed.x86_64
+  - nothing provides module(platform:el8) needed by module perl-DBI:1.641:8060020211122100623:0e56aea9.x86_64
+  - nothing provides module(platform:el8) needed by module perl-DBI:1.641:8060020211122100623:200e0407.x86_64
+ Problem 44: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module perl-DBD-SQLite:1.58:8060020210901111154:0c8a95f7.x86_64
+  - nothing provides module(platform:el8) needed by module perl-DBD-SQLite:1.58:8060020210901111154:bce9b2db.x86_64
+  - nothing provides module(platform:el8) needed by module perl-DBD-SQLite:1.58:8060020210901111154:a201e4c2.x86_64
+  - nothing provides module(platform:el8) needed by module perl-DBD-SQLite:1.58:8060020210901111154:4f86f5e0.x86_64
+ Problem 45: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module perl-DBD-Pg:3.7:8060020210901112417:e46b129e.x86_64
+  - nothing provides module(platform:el8) needed by module perl-DBD-Pg:3.7:8060020210901112417:66cd6814.x86_64
+  - nothing provides module(platform:el8) needed by module perl-DBD-Pg:3.7:8060020210901112417:c5552f1b.x86_64
+  - nothing provides module(platform:el8) needed by module perl-DBD-Pg:3.7:8060020210901112417:e5d39b47.x86_64
+ Problem 46: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module perl-DBD-MySQL:4.046:8060020210901110310:0c8a95f7.x86_64
+  - nothing provides module(platform:el8) needed by module perl-DBD-MySQL:4.046:8060020210901110310:a201e4c2.x86_64
+  - nothing provides module(platform:el8) needed by module perl-DBD-MySQL:4.046:8060020210901110310:4f86f5e0.x86_64
+  - nothing provides module(platform:el8) needed by module perl-DBD-MySQL:4.046:8060020210901110310:bce9b2db.x86_64
+ Problem 47: cannot install the best candidate for the job
+  - nothing provides module(platform:el8) needed by module perl-App-cpanminus:1.7044:8060020211122110049:5c1672a6.x86_64
+  - nothing provides module(platform:el8) needed by module perl-App-cpanminus:1.7044:8060020211122110049:2e584954.x86_64
+  - nothing provides module(platform:el8) needed by module perl-App-cpanminus:1.7044:8060020211122110049:7ba85dc7.x86_64
+  - nothing provides module(platform:el8) needed by module perl-App-cpanminus:1.7044:8060020211122110049:a439c6c3.x86_64
