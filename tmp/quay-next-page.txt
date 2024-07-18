@@ -25,15 +25,20 @@
 
 #!/bin/bash
 
-API_URL="https://quay.io/api/v1/repository?namespace=dev"
-TOKEN="Yq5mGQ1pZjreZxGFJ9JoigWbo4FTCAl9Ot"
+# Replace these variables with your Quay.io organization and API token
+ORGANIZATION="scl-dev"
+
+API_URL="https://quay.apps.ocpqa.venetianqa.local/api/v1/repository"
+
+TOKEN="Yq5mGQ1pZjreZxGFJ9JoigWEQvljXbo4FTCAl9Ot"
+
 NEXT_PAGE=""
 
 while true; do
     if [ -z "$NEXT_PAGE" ]; then
-        RESPONSE=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL")
+        RESPONSE=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL?namespace=$ORGANIZATION")
     else
-        RESPONSE=$(curl -s -H "Authorization: Bearer $TOKEN" "${API_URL}&next_page=${NEXT_PAGE}")
+        RESPONSE=$(curl -s -H "Authorization: Bearer $TOKEN" "${API_URL?namespace=$ORGANIZATION}&next_page=${NEXT_PAGE}")
     fi
 
     echo "$RESPONSE" | jq -r '.repositories[] | "\(.name) (\(.namespace)): public=\(.is_public)"'
@@ -44,4 +49,5 @@ while true; do
         break
     fi
 done
+
 
