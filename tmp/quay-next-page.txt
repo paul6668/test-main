@@ -21,3 +21,27 @@
     }
   ],
   "next_page": "gAAAAABmmObavjVfBRJi_qZm2mzTXGum3hlB0OV_lwLVERyjt6kmRYkFu-q6-MfezyQuGCfLA4qSZYPs5HFl8OiOfB7-nun8diwcU16ncSXO-kGyUjhsVyZcb1hitSuOy6o02n0j06z1vHXY4loCNzr-z8sps_xWpVQNjJIq6AprrpHDeNO1h7U="
+
+
+#!/bin/bash
+
+API_URL="https://quay.io/api/v1/repository?namespace=dev"
+TOKEN="Yq5mGQ1pZjreZxGFJ9JoigWbo4FTCAl9Ot"
+NEXT_PAGE=""
+
+while true; do
+    if [ -z "$NEXT_PAGE" ]; then
+        RESPONSE=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL")
+    else
+        RESPONSE=$(curl -s -H "Authorization: Bearer $TOKEN" "${API_URL}&next_page=${NEXT_PAGE}")
+    fi
+
+    echo "$RESPONSE" | jq -r '.repositories[] | "\(.name) (\(.namespace)): public=\(.is_public)"'
+
+    NEXT_PAGE=$(echo "$RESPONSE" | jq -r '.next_page // empty')
+
+    if [ -z "$NEXT_PAGE" ]; then
+        break
+    fi
+done
+
