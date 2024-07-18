@@ -51,3 +51,7 @@ while true; do
 done
 
 
+parse error: Invalid numeric literal at line 1, column 10
+parse error: Invalid numeric literal at line 1, column 10
+
+
