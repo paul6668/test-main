@@ -23,22 +23,23 @@
   "next_page": "gAAAAABmmObavjVfBRJi_qZm2mzTXGum3hlB0OV_lwLVERyjt6kmRYkFu-q6-MfezyQuGCfLA4qSZYPs5HFl8OiOfB7-nun8diwcU16ncSXO-kGyUjhsVyZcb1hitSuOy6o02n0j06z1vHXY4loCNzr-z8sps_xWpVQNjJIq6AprrpHDeNO1h7U="
 
 
+
+
+
+
 #!/bin/bash
 
 # Replace these variables with your Quay.io organization and API token
 ORGANIZATION="scl-dev"
-
 API_URL="https://quay.apps.ocpqa.venetianqa.local/api/v1/repository"
-
 TOKEN="Yq5mGQ1pZjreZxGFJ9JoigWEQvljXbo4FTCAl9Ot"
-
 NEXT_PAGE=""
 
 while true; do
     if [ -z "$NEXT_PAGE" ]; then
         RESPONSE=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL?namespace=$ORGANIZATION")
     else
-        RESPONSE=$(curl -s -H "Authorization: Bearer $TOKEN" "${API_URL?namespace=$ORGANIZATION}&next_page=${NEXT_PAGE}")
+        RESPONSE=$(curl -s -H "Authorization: Bearer $TOKEN" "${API_URL}?namespace=${ORGANIZATION}&next_page=${NEXT_PAGE}")
     fi
 
     echo "$RESPONSE" | jq -r '.repositories[] | "\(.name) (\(.namespace)): public=\(.is_public)"'
