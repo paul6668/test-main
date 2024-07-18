@@ -1,0 +1,23 @@
+ curl -s -H "Authorization: Bearer Yq5mGQ1pZjreZxGFJ9JoigWbo4FTCAl9Ot" "https://quay.io/api/v1/repository?namespace=dev" | jq -r
+{
+  "repositories": [
+    {
+      "namespace": "dev",
+      "name": "dev-cal_api-gateway",
+      "description": "",
+      "is_public": false,
+      "kind": "image",
+      "state": "NORMAL",
+      "is_starred": false
+    },
+    {
+      "namespace": "dev",
+      "name": "aggregate",
+      "description": "",
+      "is_public": false,
+      "kind": "image",
+      "state": "NORMAL",
+      "is_starred": false
+    }
+  ],
+  "next_page": "gAAAAABmmObavjVfBRJi_qZm2mzTXGum3hlB0OV_lwLVERyjt6kmRYkFu-q6-MfezyQuGCfLA4qSZYPs5HFl8OiOfB7-nun8diwcU16ncSXO-kGyUjhsVyZcb1hitSuOy6o02n0j06z1vHXY4loCNzr-z8sps_xWpVQNjJIq6AprrpHDeNO1h7U="
