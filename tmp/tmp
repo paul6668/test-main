@@ -4,4 +4,65 @@ https://files.pythonhosted.org/packages/0c/94/e4181a1f6286f545507528c78016e00065
 
 
 docker run -it --rm -v ./data_file:/home/app/data_dir --network host quay.io/metasync/rta_benchmark /bin/bash
+
+
+#!/bin/bash
+
+# Replace these variables with your Quay.io organization and API token
+ORGANIZATION="scl-dev"
+API_URL="https://quay.apps.ocpqa.venetianqa.local/api/v1/repository"
+TOKEN="Yq5mGQ1pZjreZxGFJ9JoigWEQvljXbo4FTCAl9Ot"
+NEXT_PAGE=""
+
+# Function to get all tags in a repository
+get_tags() {
+  local repo=$1
+  curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/$ORGANIZATION/$repo/tag" | jq -r '.tags[] | "\(.name) \(.start_ts)"'
+}
+
+# Function to delete a tag in a repository
+delete_tag() {
+  local repo=$1
+  local tag=$2
+  curl -s -X DELETE -H "Authorization: Bearer $TOKEN" "$API_URL/$ORGANIZATION/$repo/tag/$tag"
+}
+
+# Loop to handle pagination and get all repositories
+while true; do
+    if [ -z "$NEXT_PAGE" ]; then
+        RESPONSE=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL?namespace=$ORGANIZATION")
+    else
+        RESPONSE=$(curl -s -H "Authorization: Bearer $TOKEN" "${API_URL}?namespace=${ORGANIZATION}&next_page=${NEXT_PAGE}")
+    fi
+
+    # Extract repository names
+    REPOS=$(echo "$RESPONSE" | jq -r '.repositories[].name')
+
+    # Process each repository
+    for repo in $REPOS; do
+        echo "Processing repository: $repo"
+        
+        # Get all tags in the repository
+        tags=$(get_tags $repo)
+
+        # Sort tags by timestamp, keeping only the last 10
+        tags_to_delete=$(echo "$tags" | sort -k2 -nr | tail -n +11 | awk '{print $1}')
+
+        # Loop through each tag and delete it
+        for tag in $tags_to_delete; do
+            echo "Deleting tag: $tag in repository: $repo"
+            delete_tag $repo $tag
+        done
+    done
+
+    # Check for next page
+    NEXT_PAGE=$(echo "$RESPONSE" | jq -r '.next_page // empty')
+
+    if [ -z "$NEXT_PAGE" ]; then
+        break
+    fi
+done
+
+echo "Old tags have been deleted, keeping only the last 10."
+
  
