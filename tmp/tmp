@@ -10,4 +10,7 @@ docker run -it --rm -v ./data_file:/home/app/data_dir --network host quay.io/met
 
 echo "Old tags have been deleted, keeping only the last 10."
 
+
+jq: error (at <stdin>:1): object ({"name":"1....) and string ("rel") cannot have their containment checked
+
  
