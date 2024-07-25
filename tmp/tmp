@@ -13,4 +13,5 @@ echo "Old tags have been deleted, keeping only the last 10."
 
 jq: error (at <stdin>:1): object ({"name":"1....) and string ("rel") cannot have their containment checked
 
- 
+ tags_with_dates=$(echo "$tags_response" | jq -r '.tags[] | select(.name != "latest" and (test("rel") | not)) | "\(.name) \(.last_modified)"')
+
