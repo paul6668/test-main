@@ -21,4 +21,16 @@ SELECT table_schema AS "Database",
 FROM information_schema.TABLES
 GROUP BY table_schema;
 
++--------------------+-----------+
+| Database           | Size (MB) |
++--------------------+-----------+
+| _statistics_       |      NULL |
+| tpcds              |      NULL |
+| sys                |      NULL |
+| ssb                |      NULL |
+| information_schema |      NULL |
+| test_db01          |      NULL |
++--------------------+-----------+
+6 rows in set (0.01 sec)
+
 
