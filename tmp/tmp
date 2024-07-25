@@ -15,3 +15,10 @@ jq: error (at <stdin>:1): object ({"name":"1....) and string ("rel") cannot have
 
 tags_with_dates=$(echo "$tags_response" | jq -r '.tags[] | select(.name != "latest" and (.name | test("rel") | not)) | "\(.name) \(.last_modified)"')
 
+
+SELECT table_schema AS "Database",
+       ROUND(SUM(data_length + index_length) / 1024 / 1024, 2) AS "Size (MB)"
+FROM information_schema.TABLES
+GROUP BY table_schema;
+
+
