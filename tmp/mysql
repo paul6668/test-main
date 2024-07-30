@@ -1,0 +1,31 @@
+podman run -d \
+  --name mysql \
+  -e MYSQL_DATABASE='mysql' \
+  -e MYSQL_ROOT_PASSWORD='12345678' \
+  -p 3306:3306 \
+  -v ./data/conf.d:/etc/mysql/conf.d:Z \
+  -v ./data/logs:/logs:Z \
+  -v /usr/local/var/mysql:/var/lib/mysql:Z \
+  mysql:5.7
+
+
+[Unit]
+Description=Podman MySQL Container
+After=network.target
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/podman run \
+  --name mysql \
+  -e MYSQL_DATABASE='mysql' \
+  -e MYSQL_ROOT_PASSWORD='12345678' \
+  -p 3306:3306 \
+  -v /path/to/your/data/conf.d:/etc/mysql/conf.d:Z \
+  -v /path/to/your/data/logs:/logs:Z \
+  -v /usr/local/var/mysql:/var/lib/mysql:Z \
+  mysql:5.7
+ExecStop=/usr/bin/podman stop -t 10 mysql
+ExecStopPost=/usr/bin/podman rm -f mysql
+
+[Install]
+WantedBy=multi-user.target
