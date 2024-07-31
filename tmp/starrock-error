@@ -28,3 +28,9 @@ javax.naming.NamingException: LDAP connection has been closed
         at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_322]
 2024-07-31 18:48:58.149+08:00 DEBUG (starrocks-mysql-nio-pool-0|117) [AuthenticationMgr.checkPasswordForNative():264] failed to authenticate for native, user: paul.wong@10.112.76.36, error: Failed to authenticate for [user: paul.wong] by ldap
 2024-07-31 18:49:00.748+08:00 DEBUG (AuditEventProcessor|63) [AuditEventProcessor$Worker.run():90] update audit plugins. num: 1
+
+
+
+mysql -h 10.112.76.37 -P 9030 -upaul.wong -p --default-auth mysql_clear_password --enable-cleartext-plugin
+Enter password:
+ERROR 1045 (28000): Access denied for user 'paul.wong' (using password: YES)
