@@ -41,5 +41,20 @@ authentication_ldap_simple_server_host = ldaps.test.com.mo
 authentication_ldap_simple_server_port = 636
 authentication_ldap_simple_bind_base_dn = DC=test,DC=com,DC=mo
 authentication_ldap_simple_user_search_attr = sAMAccountName
-authentication_ldap_simple_bind_root_dn = "CN=starrocks_ldap,OU=test,OU=Server Accounts,DC=test,DC=com,DC=mo"
+authentication_ldap_simple_bind_root_dn = CN=starrocks_ldap,OU=test,OU=Server Accounts,DC=test,DC=com,DC=mo
 authentication_ldap_simple_bind_root_pwd = somepassword
+
+
+# LDAP 服务 IP 地址
+authentication_ldap_simple_server_host = ldap.example.com
+# LDAPS 端口
+authentication_ldap_simple_server_port = 636
+# 用户的 Base DN
+authentication_ldap_simple_bind_base_dn = dc=example,dc=com
+# LDAP 对象中标识用户的属性名称
+authentication_ldap_simple_user_search_attr = uid
+# 检索用户时使用的管理员账号 DN
+authentication_ldap_simple_bind_root_dn = cn=admin,dc=example,dc=com
+# 检索用户时，‌使用的管理员账号密码
+authentication_ldap_simple_bind_root_pwd = your_admin_password
+
