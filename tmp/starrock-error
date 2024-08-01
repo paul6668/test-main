@@ -34,3 +34,12 @@ javax.naming.NamingException: LDAP connection has been closed
 mysql -h 10.112.76.37 -P 9030 -upaul.wong -p --default-auth mysql_clear_password --enable-cleartext-plugin
 Enter password:
 ERROR 1045 (28000): Access denied for user 'paul.wong' (using password: YES)
+
+
+
+authentication_ldap_simple_server_host = ldaps.test.com.mo
+authentication_ldap_simple_server_port = 636
+authentication_ldap_simple_bind_base_dn = DC=test,DC=com,DC=mo
+authentication_ldap_simple_user_search_attr = sAMAccountName
+authentication_ldap_simple_bind_root_dn = "CN=starrocks_ldap,OU=test,OU=Server Accounts,DC=test,DC=com,DC=mo"
+authentication_ldap_simple_bind_root_pwd = somepassword
