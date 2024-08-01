@@ -58,3 +58,4 @@ authentication_ldap_simple_bind_root_dn = cn=admin,dc=example,dc=com
 # 检索用户时，‌使用的管理员账号密码
 authentication_ldap_simple_bind_root_pwd = your_admin_password
 
+podman run -d   --name starrocks-manager-mysql   -e MYSQL_DATABASE='manager'   -p 3306:3306   -v /starrocks/manager-db/config:/etc/mysql/conf.d:Z   -v /starrocks/manager-db/log:/logs:Z   -v /starrocks/manager-db/data:/var/lib/mysql:Z   localhost/mysql:8.4.2
