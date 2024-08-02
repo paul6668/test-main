@@ -59,3 +59,20 @@ authentication_ldap_simple_bind_root_dn = cn=admin,dc=example,dc=com
 authentication_ldap_simple_bind_root_pwd = your_admin_password
 
 podman run -d   --name starrocks-manager-mysql   -e MYSQL_DATABASE='manager'   -p 3306:3306   -v /starrocks/manager-db/config:/etc/mysql/conf.d:Z   -v /starrocks/manager-db/log:/logs:Z   -v /starrocks/manager-db/data:/var/lib/mysql:Z   localhost/mysql:8.4.2
+
+CREATE SECURITY INTEGRATION <security_integration_name> 
+PROPERTIES (
+    "type" = "ldap",
+    "ldap_server_host" = "",
+    "ldap_server_port" = "",
+    "ldap_bind_base_dn" = "",
+    "ldap_user_search_attr" = "",
+    "ldap_user_group_match_attr" = "",
+    "ldap_bind_root_dn" = "",
+    "ldap_bind_root_pwd" = "",
+    "ldap_cache_refresh_interval" = "",
+    "ldap_ssl_conn_allow_insecure" = "{true | false}",
+    "ldap_ssl_conn_trust_store_path" = "",
+    "ldap_ssl_conn_trust_store_pwd" = "",
+    "comment" = ""
+)
