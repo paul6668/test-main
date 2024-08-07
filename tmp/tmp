@@ -39,3 +39,13 @@ FROM information_schema.TABLES
 ORDER BY table_schema, table_name;
 
 
+keytool -importkeystore \
+        -srckeystore yourfile.pfx \
+        -srcstoretype pkcs12 \
+        -srcstorepass <password> \
+        -srcalias <alias> \
+        -srckeypass <keypassword> \
+        -destkeystore yourkeystore.jks \
+        -deststoretype JKS \
+        -deststorepass <newpassword> \
+        -destkeypass <newkeypassword>
