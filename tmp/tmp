@@ -49,3 +49,7 @@ keytool -importkeystore \
         -deststoretype JKS \
         -deststorepass <newpassword> \
         -destkeypass <newkeypassword>
+
+
+
+SSL handshake failed: error:1416F086:SSL routines:tls_process_server_certificate:certificate verify failed: broker certificate could not be verified, verify that ssl.ca.location is correctly configured or root CA certificates are installed (install ca-certificates package) (after 10ms in state SSL_HANDSHAKE)
