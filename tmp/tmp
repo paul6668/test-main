@@ -53,3 +53,6 @@ keytool -importkeystore \
 
 
 SSL handshake failed: error:1416F086:SSL routines:tls_process_server_certificate:certificate verify failed: broker certificate could not be verified, verify that ssl.ca.location is correctly configured or root CA certificates are installed (install ca-certificates package) (after 10ms in state SSL_HANDSHAKE)
+
+
+warning envoy config gRPC config for type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.Secret rejected: Failed to load private key from <inline>, Cause: error:2807106B:UI routines:UI_process:processing error
