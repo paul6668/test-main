@@ -60,3 +60,6 @@ warning envoy config gRPC config for type.googleapis.com/envoy.extensions.transp
 
 
 If the user's attribute as the member of a group is different from the user's DN, you must specify this parameter. For example, if a user's DN is uid=bob,ou=people,o=starrocks,dc=com, but its attribute as a group member is memberUid=bob,ou=people,o=starrocks,dc=com, you need to specify ldap_user_search_attr as uid and ldap_user_group_match_attr as memberUid. If this parameter is not specified, the value you specified in ldap_user_search_attr is used. You can also specify a regular expression to match the members in the group. The regular expression must be prefixed by regex:. Suppose a group has a member CN=Poornima K Hebbar (phebbar),OU=User Policy 0,OU=All Users,DC=SEA,DC=CORP,DC=EXPECN,DC=com. If you specify this property as regex:CN=.*\\(([^)]+)\\), it will match the member phebbar.
+
+
+(?i)^(.*)\.(.*)$
