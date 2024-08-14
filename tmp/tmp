@@ -63,3 +63,6 @@ If the user's attribute as the member of a group is different from the user's DN
 
 
 (?i)^(.*)\.(.*)$
+
+
+CN=([^,\\]*(?:\\.[^,\\]*)*)
