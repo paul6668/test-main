@@ -1,0 +1,57 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: restart-deployment-sa
+  namespace: <your-namespace>
+
+
+
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: restart-deployment-role
+  namespace: <your-namespace>
+rules:
+- apiGroups: ["apps"]
+  resources: ["deployments"]
+  verbs: ["get", "list", "patch"]
+
+
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: restart-deployment-rolebinding
+  namespace: <your-namespace>
+subjects:
+- kind: ServiceAccount
+  name: restart-deployment-sa
+  namespace: <your-namespace>
+roleRef:
+  kind: Role
+  name: restart-deployment-role
+  apiGroup: rbac.authorization.k8s.io
+
+
+
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: restart-deployment-cronjob
+spec:
+  schedule: "0 0 * * 0"  # Runs every Sunday at midnight
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: restart-deployment-sa  # Use the service account
+          containers:
+          - name: kubectl-container
+            image: bitnami/kubectl:latest  # Use a kubectl image
+            command:
+            - /bin/sh
+            - -c
+            - |
+              kubectl rollout restart deployment <your-deployment-name> -n <your-namespace>
+          restartPolicy: OnFailure
