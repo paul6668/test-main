@@ -68,3 +68,18 @@ If the user's attribute as the member of a group is different from the user's DN
 ^[^\\,]+\\\,\s[^,]+$
 authenticationPlugins=com.mysql.jdbc.authentication.MysqlClearPasswordPlugin&amp;defaultAuthenticationPlugin=com.mysql.jdbc.authentication.MysqlClearPasswordPlugin&amp;disabledAuthenticationPlugins=com.mysql.jdbc.authentication.MysqlNativePasswordPlugin&amp;enabledTLSProtocols=TLSv1,TLSv1.1,TLSv1.2&amp;rewriteBatchedStatements=true&amp;useSSL=true
 
+
+
+output.elasticsearch:
+  hosts: ["https://localhost:9200"]
+  ssl:
+    enabled: true
+    supported_protocols: [TLSv1.2, TLSv1.3] # Only allow strong protocols
+    cipher_suites: [
+      "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+      "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384",
+      "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256",
+      "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"
+    ]
+    renegotiation: never  # Disable insecure renegotiation
+
