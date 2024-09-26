@@ -83,3 +83,12 @@ output.elasticsearch:
     ]
     renegotiation: never  # Disable insecure renegotiation
 
+
+
+      sum(
+        kube_pod_resource_request{resource="cpu"}
+        *
+        on(node) group_left(role) (
+          max by (node) (kube_node_role{role=~"worker"})
+        )
+      )
