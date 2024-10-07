@@ -102,10 +102,24 @@ avg_over_time(
   [1w:]
 )
 
+avg_over_time(
+  sum by (namespace) (
+    container_memory_usage_bytes{container!="POD", container!="" , node_role="worker"}
+  )
+  [1w:]
+)
+
+
 
 max_over_time(
   sum by (namespace) (
     rate(container_cpu_usage_seconds_total{container!="POD", container!="" , node_role="worker"}[1m])
+  )
+  [1w:]
+)
+max_over_time(
+  sum by (namespace) (
+    container_memory_usage_bytes{container!="POD", container!="" , node_role="worker"}
   )
   [1w:]
 )
