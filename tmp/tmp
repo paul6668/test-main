@@ -92,3 +92,20 @@ output.elasticsearch:
           max by (node) (kube_node_role{role=~"worker"})
         )
       )
+
+
+
+avg_over_time(
+  sum by (namespace) (
+    rate(container_cpu_usage_seconds_total{container!="POD", container!="" , node_role="worker"}[1m])
+  )
+  [1w:]
+)
+
+
+max_over_time(
+  sum by (namespace) (
+    rate(container_cpu_usage_seconds_total{container!="POD", container!="" , node_role="worker"}[1m])
+  )
+  [1w:]
+)
