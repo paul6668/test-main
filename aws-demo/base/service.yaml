@@ -6,9 +6,10 @@ metadata:
   name: demo-service 
 spec:
   ports:
-    port: 80
-    protocol: TCP
-    targetPort: 80
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 80
   selector:
     app: "2048"
   type: NodePort
