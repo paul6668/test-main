@@ -11,6 +11,9 @@ spec:
       containers:
       - name: "user-service"      
         image: 908027398801.dkr.ecr.ap-southeast-1.amazonaws.com/poc-dev/userservice:a9ea31f-2024-10-28-02-42
+        envFrom:
+          - configMapRef:
+              name: user-service-configmap
 
 
 
