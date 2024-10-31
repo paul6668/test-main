@@ -5,4 +5,4 @@ metadata:
 data:
   ASPNETCORE_ENVIRONMENT: Development
   ApiSettings__FinancialServiceBaseUrl: "http://financial-service/api"
-  ApiSettings__ConfigureServiceBaseUrl: "http://configure_service"
+  ApiSettings__ConfigureServiceBaseUrl: "http://configure-service"
