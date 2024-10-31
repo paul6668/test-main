@@ -19,6 +19,7 @@ spec:
         app: "2048"
     spec:
       containers:
+      - name: "2048"
         imagePullPolicy: Always
         ports:
         - containerPort: 80
