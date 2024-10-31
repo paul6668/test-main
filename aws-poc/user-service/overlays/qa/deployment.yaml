@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    configver: "2"
+    config-version: "2"
   name: user-service-deployment
 spec:
   replicas: 1
