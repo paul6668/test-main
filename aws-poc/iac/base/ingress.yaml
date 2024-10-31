@@ -3,19 +3,19 @@ kind: Ingress
 metadata:
   annotations:
     alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-southeast-1:908027398801:certificate/46550ab5-e2c2-41aa-8604-9133c7d18638
-    alb.ingress.kubernetes.io/healthcheck-interval-seconds: "15"
-    alb.ingress.kubernetes.io/healthcheck-port: traffic-port
-    alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
-    alb.ingress.kubernetes.io/healthcheck-timeout-seconds: "5"
-    alb.ingress.kubernetes.io/healthy-threshold-count: "2"
+#    alb.ingress.kubernetes.io/healthcheck-interval-seconds: "15"
+#    alb.ingress.kubernetes.io/healthcheck-port: traffic-port
+#    alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
+#    alb.ingress.kubernetes.io/healthcheck-timeout-seconds: "5"
+#    alb.ingress.kubernetes.io/healthy-threshold-count: "2"
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}, {"HTTP":80}]'
     alb.ingress.kubernetes.io/load-balancer-name: poc-ingress
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/ssl-redirect: "443"
     alb.ingress.kubernetes.io/subnets: subnet-0799fe10f2a4d3a91, subnet-010ff13a936e9858d, subnet-0e67a77de78e1138e
-    alb.ingress.kubernetes.io/success-codes: "200"
+#    alb.ingress.kubernetes.io/success-codes: "200"
     alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/unhealthy-threshold-count: "2"
+#    alb.ingress.kubernetes.io/unhealthy-threshold-count: "2"
   labels:
     app: poc-ingress
   name: poc-ingress
