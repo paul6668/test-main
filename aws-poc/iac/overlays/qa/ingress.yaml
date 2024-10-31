@@ -14,7 +14,29 @@ spec:
               number: 80
         path: /
         pathType: Prefix
+  - host: configure-service.webdemoapp.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: configure-service
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  - host: financial-service.webdemoapp.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: financial-service
+            port:
+              number: 80
+        path: /
+        pathType: Prefix            
   tls:
   - hosts:
     - user-service.webdemoapp.com
+    - configure-service.webdemoapp.com
+    - financial-service.webdemoapp.com
 
