@@ -3,8 +3,7 @@ kind: Service
 metadata:
   annotations:
     service.beta.kubernetes.io/aws-load-balancer-internal: "true"
-  name: demo-service
-  
+  name: demo-service 
 spec:
   ports:
     port: 80
