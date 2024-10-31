@@ -12,4 +12,4 @@ resources:
 
 patches:
   - path: deployment.yaml
-  - path: ingress.yaml
+#  - path: ingress.yaml
