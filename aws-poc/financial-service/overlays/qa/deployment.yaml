@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+  name: financial-service-deployment
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: "financial-service"      
+        image: 908027398801.dkr.ecr.ap-southeast-1.amazonaws.com/poc-dev/financialservice:63f6d12-2024-10-28-01-13
+
+
+
+
