@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: demo-ssl-ingress
+spec:
+  rules:
+  - host: 2048.webdemoapp.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: demo-service
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - 2048.webdemoapp.com
+

@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+  name: demo-deployment
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - image: alexwhen/docker-2048
+        name: "2048"
+
+
