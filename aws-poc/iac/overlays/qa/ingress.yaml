@@ -4,7 +4,7 @@ metadata:
   name: poc-ingress
 spec:
   rules:
-  - host: user-server.webdemoapp.com
+  - host: user-service.webdemoapp.com
     http:
       paths:
       - backend:
@@ -16,5 +16,5 @@ spec:
         pathType: Prefix
   tls:
   - hosts:
-    - user-server.webdemoapp.com
+    - user-service.webdemoapp.com
 
