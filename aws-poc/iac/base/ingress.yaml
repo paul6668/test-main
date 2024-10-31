@@ -14,7 +14,7 @@ metadata:
     alb.ingress.kubernetes.io/ssl-redirect: "443"
     alb.ingress.kubernetes.io/subnets: subnet-0799fe10f2a4d3a91, subnet-010ff13a936e9858d, subnet-0e67a77de78e1138e
     alb.ingress.kubernetes.io/success-codes: "200"
-    alb.ingress.kubernetes.io/target-type: instance
+    alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/unhealthy-threshold-count: "2"
   labels:
     app: poc-ingress
