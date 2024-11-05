@@ -3,7 +3,7 @@ kind: Kustomization
 
 namePrefix: prd-
 commonLabels:
-  env: prd
+  env: poc
 
 bases:
   - ../../base
