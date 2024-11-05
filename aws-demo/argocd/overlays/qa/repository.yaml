@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ${SYSTEM_NAME}-${SERVICE_NAME}-repo
+  namespace: openshift-gitops
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  insecureIgnoreHostKey: "true"
+  type: git
+  url: git@scldevops.venetian.com.mo:22/DevOpsCollection/${SYSTEM_NAME}/_git/${SERVICE_NAME}
