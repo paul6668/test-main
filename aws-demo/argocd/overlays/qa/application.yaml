@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   # The project the application belongs to.
-  project: qa
+  project: poc
 
   # Source of the application manifests
   source:
