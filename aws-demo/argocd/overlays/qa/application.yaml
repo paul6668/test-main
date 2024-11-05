@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ${SYSTEM_NAME}-${SERVICE_NAME}
+  namespace: openshift-gitops
+spec:
+  # The project the application belongs to.
+  project: prd
+
+  # Source of the application manifests
+  source:
+    repoURL: git@scldevops.venetian.com.mo:22/DevOpsCollection/${SYSTEM_NAME}/_git/${SERVICE_NAME}
+    targetRevision: main
+    path: overlays/prd
+
+  # Destination cluster and namespace to deploy the application
+  destination:
+    # The namespace will only be set for namespace-scoped resources
+    # that have not set a value for .metadata.namespace
+    namespace: prd-${SYSTEM_NAME}
