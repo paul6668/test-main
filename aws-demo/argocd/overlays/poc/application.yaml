@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: poc-demo-2048
+  namespace: argocd
+spec:
+  # The project the application belongs to.
+  project: poc
+
+  # Source of the application manifests
+  source:
+    repoURL: https://github.com/paul6668/test-main.git
+    targetRevision: master
+    path: aws-demo/overlays/qa
+
+  # Destination cluster and namespace to deploy the application
+  destination:
+    # The namespace will only be set for namespace-scoped resources
+    # that have not set a value for .metadata.namespace
+    namespace: demo
