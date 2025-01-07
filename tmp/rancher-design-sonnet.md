@@ -1,6 +1,8 @@
 I'll help you create a comprehensive design architecture document for your infrastructure components. I'll break this down into sections with detailed descriptions and key features for each component.
 
 # Infrastructure Architecture Design Document
+![image](https://github.com/user-attachments/assets/d4ad74ac-2ec3-45ed-b20c-948ff835c1eb)
+
 
 ## 1. Base Operating System: Ubuntu 22.04 LTS
 ### Description
@@ -22,6 +24,8 @@ Ubuntu 22.04 LTS (Jammy Jellyfish) serves as the foundation operating system for
 - Resource monitoring and management
 
 ## 2. Rancher
+![image](https://github.com/user-attachments/assets/217f4bf4-be4e-4bf2-a4c0-c6b50f4009e8)
+
 ### Description
 Rancher serves as the container management platform, providing a unified interface for managing multiple Kubernetes clusters.
 
@@ -81,6 +85,8 @@ NGINX Ingress Controller manages external access to services within the Kubernet
 - Monitoring and metrics
 
 ## 5. CNI - Cilium with Wireguard and Egress
+![image](https://github.com/user-attachments/assets/044af930-0057-4e9c-8c6a-e6dbb1f6c3cb)
+
 ### Description
 Network solution providing advanced networking, security, and observability.
 
@@ -103,6 +109,8 @@ Network solution providing advanced networking, security, and observability.
 - Gateway configuration
 
 ## 6. Cert-Manager
+![image](https://github.com/user-attachments/assets/d18c9b9e-477b-424c-9ff5-67f8b900f6c7)
+
 ### Description
 Automated certificate management for Kubernetes services.
 
@@ -120,6 +128,8 @@ Automated certificate management for Kubernetes services.
 - Monitoring and alerting for certificate expiry
 
 ## 7. HashiCorp Vault
+![image](https://github.com/user-attachments/assets/35722f44-65fb-47f1-8822-752dc49c4b36)
+
 ### Description
 Secrets management and dynamic credentials generation system.
 
@@ -158,6 +168,8 @@ Enterprise-grade PostgreSQL database service.
 - Security compliance
 
 ## 9. CI/CD Pipeline - Tekton + ArgoCD
+![image](https://github.com/user-attachments/assets/a7fbed99-9550-4e8f-a137-0665e65ff999)
+
 ### Description
 Integrated continuous integration and continuous deployment solution.
 
@@ -175,7 +187,19 @@ Integrated continuous integration and continuous deployment solution.
 - Rollback capabilities
 - Application health monitoring
 
-## 10. Storage Solution - Longhorn + MinIO
+## 10. Kasten Backup Solution
+
+### Description
+Kubernetes-native backup and disaster recovery solution.
+
+### Key Features
+- Application-consistent backups
+- Policy-based automation
+- Disaster recovery
+- Integration with Longhorn and MinIO
+
+
+## 11. Storage Solution - Longhorn + MinIO
 ### Description
 Distributed storage solution combining block and object storage.
 
