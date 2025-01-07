@@ -334,3 +334,111 @@ Secrets Management: HashiCorp Vault for secure credentials.
 Database Layer: Enterprise DB for application data.
 CI/CD Layer: Tekton and ArgoCD for deployment automation.
 ```
+
+
+---
+```
+## Design Architecture Document
+
+This document outlines the design and architecture of a cloud-native application platform built on Kubernetes, utilizing various technologies for container orchestration, networking, storage, security, and continuous integration/continuous deployment (CI/CD).
+
+### 1. Base Operating System: Ubuntu 22.04
+
+**Description:** Ubuntu 22.04 serves as the foundation operating system for all nodes (master and worker) within the Kubernetes cluster.
+
+**Key Features & Benefits:**
+
+* **LTS Release:** Long-Term Support ensures stability, security patches, and updates for an extended period.
+* **Widely Used:**  A popular choice for Kubernetes deployments, offering extensive community support and documentation.
+* **Security Features:** Includes built-in security features like AppArmor and Security-Enhanced Linux (SELinux). 
+
+### 2. Kubernetes Management: Rancher
+
+**Description:** Rancher provides a user-friendly interface for managing and interacting with the Kubernetes cluster.
+
+**Key Features & Benefits:**
+
+* **Simplified Cluster Management:** Easy provisioning, monitoring, and lifecycle management of Kubernetes clusters.
+* **Centralized Control:**  Manage multiple Kubernetes clusters from a single dashboard, regardless of their location (on-premise, cloud, etc.).
+* **Application Catalog & Deployment:** Streamlines deployment of common applications and services through Helm charts.
+
+### 3. Kubernetes Distribution: RKE2 (v1.30.6 +rke2r1)
+
+**Description:** RKE2 is a lightweight, production-grade Kubernetes distribution that is certified Kubernetes conformant.
+
+**Key Features & Benefits:**
+
+* **Lightweight & Secure:** Designed for resource efficiency and security, making it suitable for various environments.
+* **Easy Installation & Configuration:** Simplifies the process of setting up and configuring a Kubernetes cluster.
+* **Active Community & Support:** Backed by Rancher and a growing community, ensuring access to resources and assistance.
+
+### 4. Ingress Controller: Nginx
+
+**Description:** Nginx Ingress Controller acts as a reverse proxy and load balancer, routing external traffic to services within the Kubernetes cluster.
+
+**Key Features & Benefits:**
+
+* **Traffic Management:**  Handles HTTP and HTTPS traffic, enabling load balancing, SSL termination, and request routing.
+* **High Performance:** Known for its speed and efficiency in handling large volumes of traffic.
+* **Flexibility & Configuration:**  Offers a wide range of configuration options to customize traffic routing and security policies.
+
+### 5. Container Network Interface (CNI): Cilium, Wireguard, Egress
+
+**Description:** This setup utilizes a combination of CNIs to provide secure and efficient networking within the cluster and with external resources.
+
+**Key Features & Benefits:**
+
+* **Cilium:**  Provides high-performance networking, security, and observability using eBPF technology.
+* **Wireguard:** Establishes secure VPN tunnels for communication between cluster nodes or with external networks.
+* **Egress Control:**  Enforces policies to control and secure outbound traffic from the cluster.
+
+### 6. Certificate Management: Cert-manager
+
+**Description:** Cert-manager automates the issuance, renewal, and management of TLS certificates for cluster services.
+
+**Key Features & Benefits:**
+
+* **Automated Certificate Lifecycle:** Simplifies the process of obtaining and renewing certificates, reducing manual effort.
+* **Integration with Let's Encrypt:**  Enables easy issuance and renewal of free TLS certificates from Let's Encrypt.
+* **Enhanced Security:** Ensures secure communication between services and external clients.
+
+### 7. Secrets Management: HashiCorp Vault
+
+**Description:** HashiCorp Vault provides a secure and centralized system for managing sensitive information, such as database credentials, API keys, and tokens.
+
+**Key Features & Benefits:**
+
+* **Dynamic Secrets:**  Generates on-demand, short-lived credentials, reducing the risk of compromise.
+* **Centralized Secrets Storage:**  Provides a secure and auditable location to store and manage secrets.
+* **Access Control & Policies:**  Granularly controls access to secrets based on roles and permissions.
+
+### 8. Database-as-a-Service: EnterpriseDB
+
+**Description:** EnterpriseDB provides a managed PostgreSQL database service, offering high availability, scalability, and data security.
+
+**Key Features & Benefits:**
+
+* **Fully Managed PostgreSQL:**  Eliminates the need for manual database administration tasks.
+* **High Availability & Scalability:** Ensures database uptime and handles growing workloads.
+* **Security & Compliance:**  Offers robust security features and compliance certifications.
+
+### 9. CI/CD Pipeline: Tekton + ArgoCD
+
+**Description:** This CI/CD pipeline leverages Tekton for building and deploying container images and ArgoCD for GitOps-based continuous delivery.
+
+**Key Features & Benefits:**
+
+* **Tekton:**  Provides a cloud-native framework for creating flexible and scalable CI/CD pipelines.
+* **ArgoCD:**  Implements GitOps principles, automatically synchronizing application deployments with Git repositories.
+* **Automated Deployments:** Enables faster and more reliable software releases through automation. 
+
+### 10. Storage: Longhorn + Minio
+
+**Description:** This setup utilizes Longhorn for persistent storage for stateful applications and Minio for object storage.
+
+**Key Features & Benefits:**
+
+* **Longhorn:**  Provides block storage that is highly available, scalable, and disaster-ready.
+* **Minio:**  Offers a S3-compatible object storage solution for storing and retrieving unstructured data.
+* **Flexible Storage Options:**  Caters to diverse storage needs within the cluster.
+```
