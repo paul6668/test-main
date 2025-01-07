@@ -123,3 +123,72 @@ max_over_time(
   )
   [1w:]
 )
+
+
+ curl -u user:geneos123 https://sgn-demo-1.servicedelivery.itrslab.com:7038
+<html><body>404 Failed to service HTML Request, /</body></html>paul.wong@trm02:~$ curl -u user:geneos123 https://sgn-demo-1.servicedelivery.itrslab.com:7038 -vvv
+*   Trying 54.254.13.247:7038...
+* Connected to sgn-demo-1.servicedelivery.itrslab.com (54.254.13.247) port 7038 (#0)
+* ALPN, offering h2
+* ALPN, offering http/1.1
+*  CAfile: /etc/ssl/certs/ca-certificates.crt
+*  CApath: /etc/ssl/certs
+* TLSv1.0 (OUT), TLS header, Certificate Status (22):
+* TLSv1.3 (OUT), TLS handshake, Client hello (1):
+* TLSv1.2 (IN), TLS header, Certificate Status (22):
+* TLSv1.3 (IN), TLS handshake, Server hello (2):
+* TLSv1.2 (IN), TLS header, Finished (20):
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+* TLSv1.3 (IN), TLS handshake, Encrypted Extensions (8):
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+* TLSv1.3 (IN), TLS handshake, Request CERT (13):
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+* TLSv1.3 (IN), TLS handshake, Certificate (11):
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+* TLSv1.3 (IN), TLS handshake, CERT verify (15):
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+* TLSv1.3 (IN), TLS handshake, Finished (20):
+* TLSv1.2 (OUT), TLS header, Finished (20):
+* TLSv1.3 (OUT), TLS change cipher, Change cipher spec (1):
+* TLSv1.2 (OUT), TLS header, Supplemental data (23):
+* TLSv1.3 (OUT), TLS handshake, Certificate (11):
+* TLSv1.2 (OUT), TLS header, Supplemental data (23):
+* TLSv1.3 (OUT), TLS handshake, Finished (20):
+* SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384
+* ALPN, server did not agree to a protocol
+* Server certificate:
+*  subject: CN=sgn-demo-1.servicedelivery.itrslab.com
+*  start date: Jan  6 12:34:30 2025 GMT
+*  expire date: Apr  6 12:34:29 2025 GMT
+*  subjectAltName: host "sgn-demo-1.servicedelivery.itrslab.com" matched cert's "sgn-demo-1.servicedelivery.itrslab.com"
+*  issuer: C=US; O=Let's Encrypt; CN=E6
+*  SSL certificate verify ok.
+* Server auth using Basic with user 'user'
+* TLSv1.2 (OUT), TLS header, Supplemental data (23):
+> GET / HTTP/1.1
+> Host: sgn-demo-1.servicedelivery.itrslab.com:7038
+> Authorization: Basic dXNlcjpnZW5lb3MxMjM=
+> User-Agent: curl/7.81.0
+> Accept: */*
+>
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+* old SSL session ID is stale, removing
+* TLSv1.2 (IN), TLS header, Supplemental data (23):
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 404 Not Found
+< Content-Type: text/html
+< Cache-Control: no-cache
+< Content-Length: 63
+< Connection: close
+< X-Content-Type-Options: nosniff
+< X-Frame-Options: sameorigin
+< X-XSS-Protection: 1; mode=block
+< Strict-Transport-Security: max-age=31536000; includeSubDomains
+<
+* Closing connection 0
+* TLSv1.2 (OUT), TLS header, Supplemental data (23):
+* TLSv1.3 (OUT), TLS alert, decode error (562):
+<html><body>404 Failed to service HTML Request, /</body></html>
