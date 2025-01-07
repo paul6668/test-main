@@ -192,3 +192,145 @@ max_over_time(
 * TLSv1.2 (OUT), TLS header, Supplemental data (23):
 * TLSv1.3 (OUT), TLS alert, decode error (562):
 <html><body>404 Failed to service HTML Request, /</body></html>
+
+
+```
+Design Architecture Document
+1. Ubuntu 22.04
+Description
+Ubuntu 22.04 LTS (Jammy Jellyfish) is the underlying operating system providing a stable, secure, and high-performance environment for hosting the Kubernetes cluster and associated components.
+
+Key Features
+Long-Term Support (LTS): Supported for five years with security updates.
+Security: Includes AppArmor, SELinux, and firewall capabilities for securing workloads.
+Performance: Optimized kernel for modern workloads.
+Compatibility: Fully compatible with Kubernetes and containerized workloads.
+Role in the Architecture
+Ubuntu serves as the base operating system for deploying Rancher, RKE2, and other components. It provides a stable platform for running containers and ensures efficient resource utilization.
+
+2. Rancher
+Description
+Rancher is a Kubernetes management platform that simplifies cluster deployment, management, and monitoring across hybrid and multi-cloud environments.
+
+Key Features
+Multi-Cluster Management: Centralized management for multiple Kubernetes clusters.
+User Authentication: Supports RBAC (Role-Based Access Control) and integrates with LDAP/SSO.
+Cluster Provisioning: Automates the deployment of Kubernetes clusters using RKE2.
+Monitoring and Alerts: Provides built-in monitoring and alerting for cluster health and workloads.
+Role in the Architecture
+Rancher is used to manage the Kubernetes cluster (RKE2) and streamline operations like monitoring, scaling, and troubleshooting. It acts as the control plane for administrators.
+
+3. RKE2 (Kubernetes Version: v1.30.6 +rke2r1)
+Description
+RKE2 (Rancher Kubernetes Engine 2) is a lightweight, certified Kubernetes distribution designed for secure and efficient cluster management.
+
+Key Features
+Lightweight: Minimal resource footprint while maintaining enterprise-grade features.
+Security: Built-in CIS (Center for Internet Security) compliance for Kubernetes clusters.
+High Availability: Supports HA setups for critical workloads.
+Integrated with Rancher: Seamless integration for cluster deployment and management.
+Role in the Architecture
+RKE2 provides the Kubernetes orchestration layer that manages containerized applications, networking, and scaling. It is the foundation for running workloads like ingress controllers, CNI plugins, and storage solutions.
+
+4. Ingress - NGINX
+Description
+NGINX is a widely used ingress controller that provides load balancing, SSL termination, and routing for Kubernetes services.
+
+Key Features
+Traffic Management: Routes external traffic to internal Kubernetes services.
+SSL/TLS Support: Handles SSL termination and certificate management.
+Custom Rules: Supports advanced configurations like rewrite rules and rate limiting.
+High Performance: Optimized for handling large volumes of traffic.
+Role in the Architecture
+NGINX ingress controller manages external access to Kubernetes services and ensures secure and efficient traffic routing. It integrates with Cert-Manager for SSL certificate automation.
+
+5. CNI - Cilium, WireGuard, and Egress
+Description
+Cilium, WireGuard, and Egress form the networking stack for the Kubernetes cluster, providing connectivity, security, and traffic control.
+
+Key Features
+Cilium: Offers advanced networking, security policies, and observability for Kubernetes workloads.
+WireGuard: Provides encrypted communication between nodes for secure networking.
+Egress: Controls outbound traffic from the cluster, ensuring compliance with security policies.
+Role in the Architecture
+The CNI plugins ensure secure and efficient networking within and outside the Kubernetes cluster. Cilium handles service-to-service communication, WireGuard encrypts node communication, and Egress manages outbound traffic.
+
+6. Cert-Manager
+Description
+Cert-Manager is a Kubernetes add-on that automates the management and issuance of TLS certificates.
+
+Key Features
+Certificate Automation: Automatically provisions and renews certificates for applications like Ingress and Minio.
+ACME Support: Integrates with Let's Encrypt and other certificate authorities.
+Custom Issuers: Supports self-signed certificates and enterprise CAs.
+Integration: Works seamlessly with NGINX Ingress and HashiCorp Vault.
+Role in the Architecture
+Cert-Manager simplifies certificate management for secure communication between services. It ensures that components like NGINX Ingress and Minio have valid and up-to-date certificates.
+
+7. HashiCorp Vault
+Description
+HashiCorp Vault is a secrets management tool that provides secure storage and dynamic credential generation.
+
+Key Features
+Dynamic Secrets: Generates database credentials on demand for Enterprise DB.
+Encryption: Stores secrets securely using strong encryption algorithms.
+Access Control: Integrates with Kubernetes RBAC for fine-grained access control.
+Audit Logs: Tracks all secret access and usage for compliance.
+Role in the Architecture
+Vault manages sensitive information like database credentials, API keys, and certificates. It dynamically generates credentials for Enterprise DB to enhance security and minimize risks.
+
+8. Database as a Service - Enterprise DB
+Description
+Enterprise DB (EDB) is a robust, scalable, and enterprise-grade database solution.
+
+Key Features
+High Availability: Supports clustering and replication for fault tolerance.
+Performance Optimization: Includes advanced indexing and query optimization.
+Security: Integrates with HashiCorp Vault for dynamic credential management.
+Kubernetes Integration: Can be deployed as a StatefulSet for persistence.
+Role in the Architecture
+Enterprise DB serves as the primary database for applications running in the Kubernetes cluster. It integrates with Vault for secure credential management and provides reliable data storage.
+
+9. CICD - Tekton + ArgoCD
+Description
+Tekton and ArgoCD form the CI/CD pipeline for automating application deployment and updates.
+
+Key Features
+Tekton: Provides a Kubernetes-native framework for building CI pipelines.
+Declarative pipelines.
+Extensible with custom tasks.
+ArgoCD: Handles GitOps-style continuous delivery.
+Syncs Kubernetes manifests from Git repositories.
+Provides a visual dashboard for deployment status.
+Role in the Architecture
+Tekton automates the build and testing process, while ArgoCD ensures that application deployments are consistent with the desired state defined in Git repositories.
+
+10. Storage - Longhorn + Minio
+Description
+Longhorn and Minio provide storage solutions for the Kubernetes cluster, supporting both block and object storage requirements.
+
+Key Features
+Longhorn:
+Distributed block storage for Kubernetes workloads.
+Snapshots and backups for data protection.
+Easy-to-use UI for managing storage volumes.
+Minio:
+High-performance object storage compatible with S3.
+Scalable and lightweight.
+Integrates with Cert-Manager for secure access.
+Role in the Architecture
+Longhorn provides persistent storage for stateful applications, while Minio offers object storage for use cases like backups and media storage. Both solutions ensure data availability and reliability.
+
+Architecture Diagram
+The architecture can be visualized as follows:
+
+Base Layer: Ubuntu 22.04 as the OS.
+Management Layer: Rancher managing RKE2.
+Networking Layer: Cilium, WireGuard, and Egress for secure networking.
+Ingress Layer: NGINX for traffic routing.
+Storage Layer: Longhorn and Minio for block and object storage.
+Certificate Management: Cert-Manager automating TLS certificates.
+Secrets Management: HashiCorp Vault for secure credentials.
+Database Layer: Enterprise DB for application data.
+CI/CD Layer: Tekton and ArgoCD for deployment automation.
+```
