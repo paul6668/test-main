@@ -1,0 +1,156 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: code-server
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/common-name: code-server.rancher.local
+    cert-manager.io/issuer: code-server-cert-issuer
+    cert-manager.io/issuer-kind: Issuer
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+  name: code-server
+  namespace: code-server
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: code-server.rancher.local
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: code-server
+            port:
+              number: 80
+  tls:
+  - hosts:
+    - code-server.rancher.local
+    secretName: code-server-tls
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: code-server
+ namespace: code-server
+spec:
+ ports:
+ - port: 80
+   targetPort: 8080
+ selector:
+   app: code-server
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: code-server
+  name: code-server
+  namespace: code-server
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: code-server
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: code-server
+    spec:
+      securityContext:
+        fsGroup: 1000
+      initContainers:
+      - name: init-chmod
+        image: busybox
+        command: ['sh', '-c']
+        args:
+        - |
+          chown -R 1000:1000 /home/coder/project
+          chmod -R 755 /home/coder/project
+          # Set up SSH directory
+          mkdir -p /home/coder/.ssh
+          cp /etc/git-secrets/id_ed25519 /home/coder/.ssh/
+          cp /etc/git-secrets/id_ed25519.pub /home/coder/.ssh/
+          chmod 700 /home/coder/.ssh
+          chmod 600 /home/coder/.ssh/id_ed25519
+          chmod 644 /home/coder/.ssh/id_ed25519.pub
+          # Add GitHub to known_hosts
+          ssh-keyscan github.com > /home/coder/.ssh/known_hosts
+          chmod 644 /home/coder/.ssh/known_hosts
+          # Set proper ownership
+          chown -R 1000:1000 /home/coder/.ssh
+        volumeMounts:
+        - name: code-server-storage
+          mountPath: /home/coder/project
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "32Mi"
+          limits:
+            cpu: "100m"
+            memory: "128Mi"
+      containers:
+      - image: codercom/code-server:latest
+        imagePullPolicy: Always
+        name: code-server
+        command: ["code-server"]
+        args:
+        - "--auth=password"
+        - "--user-data-dir=/home/coder/.local/share/code-server"
+        - "--bind-addr=0.0.0.0:8080"
+        - "/home/coder/project"
+        env:
+        - name: PASSWORD
+          value: "1qazxsw2"
+        - name: WORKSPACE
+          value: "/home/coder/project"
+        volumeMounts:
+        - name: code-server-storage
+          mountPath: /home/coder/project
+        - name: git-config
+          mountPath: /home/coder/.gitconfig
+          subPath: .gitconfig
+        - name: ssh-dir
+          mountPath: /home/coder/.ssh
+        securityContext:
+          runAsUser: 1000
+          runAsGroup: 1000
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "50Mi"
+          limits:
+            cpu: "500"
+            memory: "1Gi"
+      volumes:
+      - name: code-server-storage
+        persistentVolumeClaim:
+          claimName: code-server-pvc
+      - name: ssh-key
+        secret:
+          secretName: git-ssh-key
+          defaultMode: 0600
+      - name: git-config
+        configMap:
+          name: git-config
+      - name: ssh-dir
+        emptyDir: {}
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: code-server-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
