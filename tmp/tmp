@@ -1,3 +1,5 @@
+apiserver_request_total{system_client=~".*aqua.*"}
+
 sum by(resource, code, verb, system_client)  (irate(apiserver_request_total{job="apiserver", system_client!=""}[5m]))
 https://files.pythonhosted.org/packages/0c/94/e4181a1f6286f545507528c78016e00065ea913276888db2262507693ce5/PyMySQL-1.1.1-py3-none-any.whl
 
